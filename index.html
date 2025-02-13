@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Crush</title>
+    <style>
+        /* Định dạng tổng thể */
+        body {
+            background-color: #ffb6c1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Ẩn tấm thiệp lúc đầu */
+        .card {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        /* Khi hiển thị tấm thiệp */
+        .card.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Tiêu đề */
+        .card h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Nội dung tin nhắn */
+        .card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Phần chữ ký */
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        /* Biểu tượng trái tim */
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            animation: beat 1s infinite ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .heart img {
+            width: 80px;
+            height: auto;
+        }
+
+        /* Ẩn trái tim khi nhấn */
+        .heart.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Hiệu ứng nhịp đập */
+        @keyframes beat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thiệp -->
+    <div class="card" id="card">
+        <h1>DEAR CRUSH,</h1>
+        <p>I've been keeping this in for a while, but I think Valentine's Day is the perfect time to say it—you’re the reason my days feel brighter. 
+        Your smile, your laughter, the way you make everything feel lighter—it all makes my heart race in the best way possible.</p>
+
+        <p>So, here it is... I like you, a lot. Maybe even love. Would you be my Valentine? 
+        No matter your answer, I just wanted you to know how special you are to me.</p>
+
+        <p class="signature">Send you, <br> Love</p>
+    </div>
+
+    <!-- Trái tim -->
+    <div class="heart" id="heart" onclick="showCard()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/2048px-Heart_coraz%C3%B3n.svg.png" alt="Heart">
+    </div>
+
+    <script>
+        function showCard() {
+            document.getElementById("card").classList.add("show");
+            document.getElementById("heart").classList.add("hide");
+        }
+    </script>
+
+</body>
+</html>
